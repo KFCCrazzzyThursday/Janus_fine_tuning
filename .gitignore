@@ -1,2 +1,5 @@
-/Janus
-/dataset/raw_data
+*.zip
+Qwen_vl/3B/checkpoint
+Qwen_vl/7B/checkpoint
+Qwen_vl/70B/checkpoint
+dataset/raw_data
