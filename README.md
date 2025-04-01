@@ -34,7 +34,7 @@ cd /workspace/liyj/Janus_fine_tuning/Janus
 
 pip install -e .
 pip install transformers==4.38.2
-pip install gpustat
+pip install gpustat ipykernel
 
 watch --color -n 1 gpustat --color
 ```
@@ -62,7 +62,7 @@ python -m ipykernel install --user --name Janus --display-name "Python (Janus)"
 ```
 
 ## 7.TensorBoard Tips
-Refer to this [Github Issue](https://github.com/tensorflow/tensorboard/issues/6808).
+Refer to this [Github issue](https://github.com/tensorflow/tensorboard/issues/6808).
 ```
 pip install tensorboard
 pip install protobuf==4.25
