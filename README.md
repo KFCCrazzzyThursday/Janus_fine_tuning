@@ -2,7 +2,7 @@
 
 ## 1. SSH Public Key
 
-Add the following SSH public key to key list:
+Add the following SSH public key to server key list:
 
 ```bash
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJhes/9LAx0dQ882EdAuA3G1+pfW5k6ovpudq7aKsAh liyj@DESKTOP-LOH1NAO
@@ -21,6 +21,7 @@ git clone https://github.com/KFCCrazzzyThursday/Janus_fine_tuning.git
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash ./Miniconda3-latest-Linux-x86_64.sh
 rm ./Miniconda3-latest-Linux-x86_64.sh
+source ~/.bashrc
 ```
 
 ## 4. Create Environment and Install Dependencies
@@ -41,7 +42,10 @@ watch --color -n 1 gpustat --color
 ## 5. SSH Key Setup for GitHub
 
 ```bash
-git remote add origin git@github.com:KFCCrazzzyThursday/Janus_fine_tuning.git
+git config --global user.email "liyj323@mail2.sysu.edu.cn"
+git config --global user.name "liyj"  
+# Only if you haven't added SSH remote already
+git remote set-url origin git@github.com:KFCCrazzzyThursday/Janus_fine_tuning.git
 
 ssh-keygen -t ed25519 -C "liyj323@mail2.sysu.edu.cn"
 cat ~/.ssh/id_ed25519.pub
@@ -49,3 +53,17 @@ cat ~/.ssh/id_ed25519.pub
 
 > 🔐 Copy the output and add it to your GitHub SSH keys:  
 > https://github.com/settings/keys
+
+## 6. Jupyter Notebook with VSCode
+
+Install Python and Jupyter extensions on VSCode. Then
+```
+python -m ipykernel install --user --name Janus --display-name "Python (Janus)"
+```
+
+## 7.TensorBoard Tips
+Refer to this [Github Issue](https://github.com/tensorflow/tensorboard/issues/6808).
+```
+pip install tensorboard
+pip install protobuf==4.25
+```
