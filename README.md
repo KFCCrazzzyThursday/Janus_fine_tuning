@@ -69,7 +69,7 @@ pip install protobuf==4.25
 ```
 
 ## 8. FlashAttention
-❗<span style="color:red"> Must install Pytorch and Torchvision first or errors occur
+❗<span style="color:red"> Must install Pytorch and Torchvision first or errors occur </span>
 ```
 pip install bitsandbytes accelerate
 pip install flash-attn --no-build-isolation
