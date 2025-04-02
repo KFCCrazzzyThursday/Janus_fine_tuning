@@ -30,7 +30,7 @@ source ~/.bashrc
 conda create -n Janus python==3.10
 conda activate Janus
 
-cd /workspace/liyj/Janus_fine_tuning/Janus
+cd /workspace/Janus_fine_tuning/Janus
 
 pip install -e .
 pip install transformers==4.38.2
