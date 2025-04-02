@@ -9,11 +9,12 @@ import re
 
 # Specify the path to the model
 model_path = "deepseek-ai/Janus-1.3B"
-vl_chat_processor: VLChatProcessor = VLChatProcessor.from_pretrained(model_path)
+vl_chat_processor: VLChatProcessor = VLChatProcessor.from_pretrained(
+    model_path, cache_dir="/workspace/Janus_fine_tuning/ckpt/Janus-1.3B")
 tokenizer = vl_chat_processor.tokenizer
 
 vl_gpt: MultiModalityCausalLM = AutoModelForCausalLM.from_pretrained(
-    model_path, trust_remote_code=True
+    model_path, trust_remote_code=True, cache_dir="/workspace/Janus_fine_tuning/ckpt/Janus-1.3B"
 )
 vl_gpt = vl_gpt.to(torch.bfloat16).cuda().eval()
 
@@ -106,7 +107,7 @@ def generate(
 
     # Save images with timestamp and part of the user prompt in the filename
     for i in range(parallel_size):
-        save_path = os.path.join('generated_samples', f"img_{timestamp}_{short_prompt}_{i}.jpg")
+        save_path = os.path.join('generated_samples/Janus-1.3B', f"img_{timestamp}_{short_prompt}_{i}.jpg")
         PIL.Image.fromarray(visual_img[i]).save(save_path)
 
 

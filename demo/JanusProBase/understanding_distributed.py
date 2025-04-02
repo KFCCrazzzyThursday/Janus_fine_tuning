@@ -71,8 +71,8 @@ def generate_images(
 
         # 执行 CFG
         logits = real_model.gen_head(hidden_states[:, -1, :])
-        logits_cond = logits[0::2, :]
-        logits_uncond = logits[1::2, :]
+        logits_cond = logits[0::2, :] # 0 2 4 6
+        logits_uncond = logits[1::2, :] # 1 3 5 7
         logits = logits_uncond + cfg_weight * (logits_cond - logits_uncond)
         probs = torch.softmax(logits / temperature, dim=-1)
 
@@ -148,9 +148,9 @@ def main():
     conversation = [
         {
             "role": "<|User|>",
-            "content": "Generate an image compatible for this QA pair:",
+            "content": f"Generate an image compatible for this QA pair: {question}",
         },
-        {"role": "<|Assistant|>", "content": f"{question}"},
+        {"role": "<|Assistant|>", "content": ""},
     ]
 
     # 应用 SFT 模板
