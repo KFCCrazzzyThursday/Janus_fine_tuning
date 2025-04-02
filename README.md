@@ -61,9 +61,22 @@ Install Python and Jupyter extensions on VSCode. Then
 python -m ipykernel install --user --name Janus --display-name "Python (Janus)"
 ```
 
-## 7.TensorBoard Tips
+## 7. TensorBoard Tips
 Refer to this [Github issue](https://github.com/tensorflow/tensorboard/issues/6808).
 ```
 pip install tensorboard
 pip install protobuf==4.25
+```
+
+## 8. FlashAttention
+❗<span style="color:red"> Must install Pytorch and Torchvision first or errors occur
+```
+pip install bitsandbytes accelerate
+pip install flash-attn --no-build-isolation
+```
+
+## 9. Fine-Tuning Tips
+Get the latest release by
+```
+pip install git+https://github.com/huggingface/trl.git
 ```
